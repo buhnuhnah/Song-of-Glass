@@ -1,0 +1,10 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/story scripts/ch3.rpy", line 110: expected statement.
+    end_buddy = 'zygmunt'
+              ^
+
+Ren'Py Version: Ren'Py 7.4.4.1439
+Thu Oct  7 10:37:11 2021

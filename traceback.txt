@@ -1,0 +1,22 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/story scripts/ch4.rpy", line 551, in script
+    [Andia Annoyed] "Bogdan has it. But now is not the time to-"
+Exception: Sayer '[Andia Annoyed]' is not defined.
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/story scripts/ch4.rpy", line 551, in script
+    [Andia Annoyed] "Bogdan has it. But now is not the time to-"
+  File "renpy/ast.py", line 680, in execute
+    who = eval_who(self.who, self.who_fast)
+  File "renpy/ast.py", line 574, in eval_who
+    raise Exception("Sayer '%s' is not defined." % who)
+Exception: Sayer '[Andia Annoyed]' is not defined.
+
+Windows-10-10.0.19041
+Ren'Py 7.4.4.1439
+Song of Glass 1.0
+Thu Oct  7 10:43:12 2021
