@@ -1,4 +1,7 @@
 label ch1_s6:
+    stop music fadeout 1.0
+    play music "Elven Ruin.ogg" fadein 1.0 loop
+
     $ dmood = 'neutral'
     $ zmood = 'neutral'
     $ bmood = 'neutral'
@@ -56,7 +59,8 @@ label ch1_s6:
     "They gesture to each other-a sign language I don't understand. Probably something they came up with for themselves in the years they've adventured together."
     $ dmood = 'neutral'
     "The skeletons are scary but I'm not as terrified as with that zombie. I know those things are dead after all, we just have to stop them from moving."
-
+    stop music fadeout 1.0
+    play music2 "combat music (level 0).ogg" fadein 1.0 loop
 menu:
     "Buff the party":
         jump ch1_s6_2
@@ -65,6 +69,7 @@ menu:
 
 label ch1_s6_2:
     $ dmood = 'happy'
+    play music "A Song of Hope and Heroism.ogg" fadein 1.0
     "I play a song of hope and heroism. My magic surrounds the other party members."
     $ bmood = 'happy'
     b "Wow, I feel so strong and confident now!"
@@ -93,6 +98,7 @@ label ch1_s6_3:
     d "Anybody hurt?"
     b "Yes, one of them scratched me."
     d "Let me heal that."
+    play music "A Song of Healing (excerpt).ogg" fadein 1.0
     "I play a song of healing for Bogdan and his wound closes."
     $ bmood = 'happy'
     b "Thank you!"
@@ -101,6 +107,9 @@ label ch1_s6_3:
     jump ch1_s7
 
 label ch1_s7:
+    stop music2 fadeout 1.0
+    play music "combat music (level 2).ogg" fadein 1.0 loop
+
     $ amood = 'neutral'
     $ bmood = 'neutral'
     $ dmood = 'neutral'
@@ -136,6 +145,7 @@ label ch1_s7:
     d "You piece of shit! Those were my favourite shoes!"
     "Why would I wear my favourite shoes to elven ruins? Well, I have not shared this information with anyone yet... but I'm actually a shoe collector and all of my shoes are my favourites."
     "Shoes are serious business. They are a gift from gods. They should be worshipped, not scorched by dark energy."
+    play music2 "A Song of Silence.ogg" fadein 1.0
     "Fueling my anger into my song, I play the Silent Song, creating a field that seals the use of magic in the back half of the cathedral for those standing in it."
     d "Try casting any spells now, you bastard!"
     $ zmood = 'happy'
@@ -144,6 +154,7 @@ label ch1_s7:
     z "Wow, that's amazing!"
     "Zygmunt shoots an arrow after arrow at the skeleton that is now confused. The enemy is unable to cast any spells while Andia is outside of the field of silence, so she casts a blast of wind."
     "Meanwhile Bogdan runs up to the skeleton warlock and whacks it with his big sword."
+    stop music fadeout 1.0
     "After a few attacks from everyone, the skeleton begins to turn to dust, defeated. I know this sounds like an easy boss fight, but it was only this simple thanks to it being unable to cast spells."
     "Still, as I look at my companions they all look tired. Fighting takes a toll on the body after all. That's why it is best for fights to be brief and to the point."
     $ dmood = 'happy'
@@ -153,6 +164,7 @@ label ch1_s7:
     z "It would not have been so easy without you."
     b "Thank you, Dobrava."
     d "My pleasure."
+    play music "Elven Ruin.ogg" fadein 1.0 loop
     "We move closer to the artifact on the throne."
     $ zmood = 'neutral'
     $ amood = 'neutral'

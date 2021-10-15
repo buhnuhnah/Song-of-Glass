@@ -1,4 +1,7 @@
 label ch1_s8:
+    stop music fadeout 1.0
+    play music2 "Quiet Moments.ogg" fadein 1.0 loop
+
     scene tavern
     show zygmunt at farright
     show bogdan at rightish
@@ -415,6 +418,7 @@ label ch1_s8_zygmunt5:
     z "Forget it... that might have been too much to ask..."
     $ dmood = 'happy'
     $ zmood = 'surprised'
+    scene zygmuntCG with fade
     "I get up and go around the table to his side. Then I grab him by the collar of his shirt and kiss him. He is surprised at first but kisses me back."
     "Well, I have to say he is good at this. But when he licks my lower lip, asking for permission to deepen the kiss, I pull back. That's too much for my first kiss with him."
     "Either way, I enjoyed our moment of intimacy and I don't regret it. I smile at him and he smiles back."

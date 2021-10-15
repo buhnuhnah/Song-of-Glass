@@ -1,4 +1,6 @@
 label ch4_s1:
+    stop music fadeout 1.0
+    play music2 "dark magic music (level 3).ogg" fadein 1.0 loop
     $ dmood = 'angry'
     $ ymood = 'smirk'
     scene throne room
@@ -11,6 +13,8 @@ label ch4_s1:
     "She places the souls of the dead which float around in one of the castle's rooms - beautiful lights which I thought were nothing special - into those bones, creating new skeleton servants."
     "One time she creates a zombie and I almost faint from the smell of death as it passes by me."
     "One day when Yarlomila is not busy, I decide to have a serious talk with her."
+    stop music2 fadeout 1.0
+    play music "Yarlomila Theme (main).ogg" fadein 1.0 loop
     d "Hey!"
     y "Oh, so you've decided to finally grace me with your beautiful voice?"
     d "I won't sing for you. Ever! But we can talk."
@@ -43,6 +47,8 @@ label ch4_s1:
             jump ch4_s2_andia
 
 label end_songbird:
+    stop music fadeout 1.0
+    play music2 "kujawiak (accompanied).ogg" fadein 1.0 loop
     $ dmood = 'neutral'
     $ ymood = 'smirk'
     "Days pass by and Yarlomila and I get to know each other better."
@@ -58,6 +64,8 @@ label end_songbird:
     return
 
 label ch4_s2_zygmunt:
+    stop music fadeout 1.0
+    play music2 "combat music (level 0).ogg" fadein 1.0 loop
     $ zmood = 'angry'
     $ bmood = 'sad'
     $ amood = 'neutral'
@@ -190,6 +198,8 @@ label ch4_s2_zygmunt3:
     jump ch4_s3
 
 label ch4_s2_bogdan:
+    stop music fadeout 1.0
+    play music2 "combat music (level 0).ogg" fadein 1.0 loop
     $ amood = 'neutral'
     $ bmood = 'sad'
     $ zmood = 'angry'
@@ -306,6 +316,8 @@ label ch4_s2_bogdan:
     jump ch4_s3
 
 label ch4_s2_andia:
+    stop music fadeout 1.0
+    play music2 "combat music (level 0).ogg" fadein 1.0 loop
     $ amood = 'neutral'
     $ bmood = 'sad'
     $ zmood = 'angry'
@@ -413,6 +425,8 @@ label ch4_s2_andia:
     jump ch4_s3
 
 label ch4_s3:
+    stop music2 fadeout 1.0
+    play music "Yarlomila Theme (main).ogg" fadein 1.0 loop
     $ dmood = 'neutral'
     $ ymood = 'smirk'
     $ bmood = 'neutral'
@@ -487,6 +501,8 @@ label ch4_s3:
     $ ymood = 'sad'
     y "Correct! Now dear guests, do you want to defeat the great evil and become heroes?"
     "I notice she looks somewhat sad as she says that, regret and sorrow tinging her voice. It couldn't be... does she want to die and be freed from her loneliness and pain?"
+    stop music fadeout 1.0
+    play music2 "combat music (level 3).ogg" fadein 1.0 loop
     "Is that why she has done all this? Did she capture me to lure my friends here and have them play heroes?"
 menu:
     "Let your friends kill the necromancer":
@@ -505,6 +521,8 @@ label ch4_s3_2:
     scene black with fade
     "The castle of glass shatters." with sshake
 
+    stop music2 fadeout 1.0
+    play music "Elven Ruin.ogg" fadein 1.0 loop
     $ dmood = 'neutral'
     $ amood = 'neutral'
     $ bmood = 'neutral'
@@ -578,6 +596,8 @@ label ch4_s3_3:
     scene black with fade
     "The castle of glass shatters." with sshake
 
+    stop music2 fadeout 1.0
+    play music "Elven Ruin.ogg" fadein 1.0 loop
     $ dmood = 'neutral'
     $ amood = 'neutral'
     $ bmood = 'neutral'
@@ -647,6 +667,8 @@ label ch4_s3_3:
     jump end_secondChance
 
 label end_secondChance:
+    stop music fadeout 1.0
+    play music2 "Yarlomila Theme (gentle).ogg" fadein 1.0 loop
     $ zmood = 'neutral'
     $ amood = 'neutral'
     $ bmood = 'neutral'

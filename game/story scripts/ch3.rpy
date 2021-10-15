@@ -1,4 +1,6 @@
 label ch3_s1:
+    stop music2 fadeout 1.0
+    play music "Russian Polka.ogg" fadein 1.0 loop
     $ amood = 'neutral'
     $ bmood = 'neutral'
     $ dmood = 'neutral'
@@ -56,6 +58,8 @@ label ch3_s1:
     jump ch3_s2
 
 label ch3_s2:
+    stop music fadeout 1.0
+    play music2 "Elven Ruin.ogg" fadein 1.0 loop
     $ amood = 'neutral'
     $ bmood = 'neutral'
     $ dmood = 'neutral'
@@ -354,6 +358,9 @@ label ch3_s2_andia2:
     jump ch3_s3
 
 label ch3_s3:
+    stop music2 fadeout 1.0
+    play music "combat music (level 2).ogg" fadein 1.0 loop
+
     $ amood = 'neutral'
     $ bmood = 'neutral'
     $ dmood = 'neutral'
@@ -385,6 +392,7 @@ label ch3_s3:
     $ bmood = 'happy'
     b "Then let's fight this thing!"
     "We engage the skeleton in combat. I buff the party but the skeleton is a strong opponent, its bones sturdy and well-connected."
+    play sound "A Song of Healing.ogg"
     "At one point, the skeleton injures Bogdan and I play the song of healing. Bogdan's wound closes."
     b "Thank you, Dobrava! Now let's finish this!"
     "With a final swing of his sword, Bogdan destroys the skeleton. Its bones shatter on the ground. Bogdan approaches the chest-"
@@ -398,6 +406,8 @@ label ch3_s3:
     d "Open it."
     "Zygmunt opens the chest with a look of anticipation, but his expression quickly changes to one of disappointment."
     $ zmood = 'sad'
+    stop music fadeout 1.0
+    play music2 "Elven Ruin.ogg" fadein 1.0 loop
     z "What is this trash?!"
     "I look over his shoulder. What looks like another part of the scepter's handle lies inside, but the indent where a jewel would sit is empty. It's adorned with Elven markings."
     "I feel a sense of accomplishment for finding this, but the feeling is not my own. The handle, somehow, looks incredibly pleased with itself"
@@ -427,6 +437,8 @@ label ch3_s3:
     jump ch3_s4
 
 label ch3_s4:
+    stop music2 fadeout 1.0
+    play music "mazurka (accompanied).ogg" fadein 1.0 loop
     $ amood = 'neutral'
     $ bmood = 'neutral'
     $ dmood = 'neutral'
@@ -462,6 +474,8 @@ label ch3_s4:
     d "If it's available at the tavern, why not?"
     "We continue our conversation while continuing towards the tavern. We are all in high spirits, albeit tired."
     "I can't help but feel like something bad is going to happen, but I don't know what. How do I stop something like that?"
+    stop music fadeout 1.0
+    play music2 "Guardian of the Forest.ogg" fadein 1.0 loop
     "Leshy" "You can't stop fate."
     $ amood = 'surprised'
     $ bmood = 'surprised'
@@ -490,6 +504,8 @@ label ch3_s4:
     "Leshy" "May the blessings of the forest light your path."
     "We all thank Leshy for their blessing. Then, in the same manner they appeared out of nowhere, between one blink of our eyes and the other, they disappear from sight."
     $ dmood = 'sad'
+    stop music2 fadeout 1.0
+    play music "kujawiak (accompanied).ogg" fadein 1.0 loop
     d "I can't help but feel sad for this wizardess..."
     $ bmood = 'surprised'
     $ amood = 'surprised'
@@ -531,6 +547,8 @@ label ch3_s5:
     scene throne room
     show dobrava at center
     with Fade(0.5, 0.5, 0.5)
+    stop music fadeout 1.0
+    play music2 "dark magic music (level 3).ogg" fadein 1.0 loop
     "I'm in the same glass castle as I was the previous two nights. Without delay, I make my way to the throne room to meet the beautiful woman. Maybe tonight I can engage her in a proper conversation."
     "The only thing that changed in the throne room is the fact that there is now a large golden birdcage in there."
     "I briefly wonder what kind of bird such a large cage could be for? I can only think of the mythical phoenix."
@@ -557,6 +575,8 @@ label ch3_s5_2:
     "She smiles her creepy smile which doesn't reach her eyes. Her hand is very cold, but I don't pull away. Maybe I can have some sort of connection with her this way? Reach her?"
     $ dmood = 'surprised'
     "Before I know it, she teleports to the cage and pushes me inside. The door closes behind me with a loud bang and the lock clicks. The woman laughs."
+    stop music2 fadeout 1.0
+    play music "Yarlomila Theme (main).ogg" fadein 1.0 loop
     "???" "My precious Songbird. Now you are mine."
     d "What are you doing?! Who are you?!"
     y "They call me Yarlomila."

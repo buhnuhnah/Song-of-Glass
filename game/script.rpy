@@ -31,17 +31,17 @@ image zygmunt = ConditionSwitch(
 
 # SPRITE POSITIONS
 transform left:
-    xalign 0.15
+    xalign 0.15 yalign 1.0
 transform right:
-    xalign 0.85
+    xalign 0.85 yalign 1.0
 transform leftish:
-    xalign 0.3
+    xalign 0.3 yalign 1.0
 transform rightish:
-    xalign 0.65
+    xalign 0.65 yalign 1.0
 transform farleft:
-    xalign 0.0
+    xalign 0.0 yalign 1.0
 transform farright:
-    xalign 0.95
+    xalign 0.95 yalign 1.0
 
 # CG IMAGES
 image andiaCG = Image("images/cg/Andia_CG.png")
@@ -50,7 +50,8 @@ image yarlomilaCG = Image("images/cg/Yarlomila_CG.png")
 image zygmuntCG = Image("images/cg/Zygmunt_CG.png")
 
 init python:
-    config.searchpath.extend(["game/audio", "game/images/backgrounds"])
+    config.searchpath.extend(["game/audio", "game/audio/combat music", "game/audio/dark magic music", "game/images/backgrounds"])
+    renpy.music.register_channel("music2")
 
     # SHAKE EFFECT : Shake(position, duration, max distance)
     import math
@@ -101,7 +102,7 @@ init python:
     zygmunt = 0
     andia = 0
     songbird = 0
-    
+
     ch1s8_buddy = "andia"   # who they spent time with in ch1 s8
     kissZygmunt = False     # true if you kiss Zygmunt in ch1
     ch2_buddy = "self"      # who they spent time with in ch2

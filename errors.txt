@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/story scripts/ch3.rpy", line 110: expected statement.
-    end_buddy = 'zygmunt'
-              ^
+File "game/options.rpy", line 65: expected statement.
+    renpy.music.register_channel("music2")
+                                          ^
 
 Ren'Py Version: Ren'Py 7.4.4.1439
-Thu Oct  7 10:37:11 2021
+Mon Oct 11 19:02:05 2021

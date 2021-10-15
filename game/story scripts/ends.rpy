@@ -1,4 +1,7 @@
 label zygmuntFriend_end:
+    stop music fadeout 1.0
+    stop music2 fadeout 1.0
+    play music "Song of Glass (main title).ogg" fadein 1.0 loop
     $ zmood = 'neutral'
     $ dmood = 'angry'
     scene office
@@ -37,6 +40,9 @@ label zygmuntFriend_end:
     return
 
 label zygmuntLove_end:
+    stop music fadeout 1.0
+    stop music2 fadeout 1.0
+    play music "Song of Glass (main title).ogg" fadein 1.0 loop
     $ zmood = 'neutral'
     $ dmood = 'neutral'
     scene marketplace
@@ -113,6 +119,9 @@ label zygmuntLove_end:
     return
 
 label bogdanLove_end:
+    stop music fadeout 1.0
+    stop music2 fadeout 1.0
+    play music "Song of Glass (main title).ogg" fadein 1.0 loop
     $ bmood = 'happy'
     $ dmood = 'angry'
     scene tavern
@@ -214,6 +223,9 @@ label bogdanLove_end:
     return
 
 label bogdanFriend_end:
+    stop music fadeout 1.0
+    stop music2 fadeout 1.0
+    play music "Song of Glass (main title).ogg" fadein 1.0 loop
     $ bmood = 'neutral'
     $ dmood = 'neutral'
     $ amood = 'neutral'
@@ -288,6 +300,9 @@ label bogdanFriend_end:
     return
 
 label andiaLove_end:
+    stop music fadeout 1.0
+    stop music2 fadeout 1.0
+    play music "Song of Glass (main title).ogg" fadein 1.0 loop
     $ dmood = 'neutral'
     $ amood = 'neutral'
     scene forest path
@@ -342,6 +357,9 @@ label andiaLove_end:
     return
 
 label andiaFriend_end:
+    stop music fadeout 1.0
+    stop music2 fadeout 1.0
+    play music "Song of Glass (main title).ogg" fadein 1.0 loop
     $ amood = 'happy'
     $ bmood = 'happy'
     $ dmood = 'happy'
@@ -375,6 +393,9 @@ label andiaFriend_end:
     return
 
 label end_guilt:
+    stop music fadeout 1.0
+    stop music2 fadeout 1.0
+    play music "Yarlomila Theme (gentle).ogg" fadein 1.0 loop
     $ amood = 'neutral'
     $ dmood = 'sad'
     $ zmood = 'happy'
@@ -409,6 +430,8 @@ label end_guilt:
     scene inn room with Fade(0.5, 0.75, 0.5)
     "I sleep for several days, lacking the energy to get out of bed. The rest of the party comes to visit me but I feel distant from them. The guilt of what we did is dragging me down."
 
+    stop music fadeout 1.0
+    play music2 "Quiet Moment.ogg" fadein 1.0 loop
     $ dmood = 'sad'
     $ amood = 'happy'
     $ zmood = 'happy'

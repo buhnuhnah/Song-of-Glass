@@ -1,10 +1,15 @@
 label ch1_s9:
+    stop music2 fadeout 1.0
+    play music "dark magic music (level 1).ogg" fadein 1.0 loop
+
     scene inn room with fade
     "I toss and turn and can't fall asleep. When I do, I dream of combat and scary monsters who used to be human but no longer are."
     d "No! No!"
     $ dmood = 'surprised'
     show dobrava at center with dissolve
     "A knock on the door wakes me up. I get dressed quickly and move to open the door."
+    stop music fadeout 1.0
+    play music2 "Quiet Moments.ogg" fadein 1.0 loop
     if ch1s8_buddy == "zygmunt":
         jump ch1_s9_zygmunt
     elif ch1s8_buddy == "bogdan":
@@ -221,6 +226,8 @@ label ch1_s9_andia4:
     jump ch1_s10
 
 label ending1:
+    stop music2 fadeout 1.0
+    play music "mazurka (accompanied).ogg" fadein 1.0 loop
     $ dmood = 'sad'
     d "I guess that's right. I... I'd like to stop doing this...if you don't mind."
     if ch1s8_buddy == "zygmunt":
@@ -260,6 +267,8 @@ label ending1:
     return
 
 label ch1_s10:
+    stop music2 fadeout 1.0
+    play music "dark magic music (level 0).ogg" fadein 1.0 loop
     $ dmood = 'neutral'
     scene yarlomilaCG with Fade(0.75, 1.0, 0.75)
 

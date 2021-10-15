@@ -1,4 +1,7 @@
 label ch2_s1:
+    stop music fadeout 1.0
+    play music2 "Russian Polka.ogg" fadein 1.0 loop
+
     $ amood = 'neutral'
     $ bmood ='neutral'
     $ dmood = 'neutral'
@@ -120,6 +123,9 @@ label ch2_s2_andia2:
     jump ch2_s3
 
 label ch2_s2_boys:
+    stop music2 fadeout 1.0
+    play music "market music.ogg" fadein 1.0 loop
+
     $ bmood = 'neutral'
     $ dmood = 'neutral'
     $ zmood = 'neutral'
@@ -187,6 +193,9 @@ label ch2_s2_bogdan:
     show dobrava at right
     show bogdan at left
     with fade
+    stop music fadeout 1.0
+    play music2 "polonaise (hpsd).ogg" fadein 1.0 loop
+
     "We enter the townhouse. There is a stern-looking elven woman with big glasses sitting at a desk before us."
     "Behind her are numerous bookshelves carrying heavy tomes - probably all the accounting one has to do for a town this large. I don't envy this person at all."
     $ dmood = 'happy'
@@ -248,6 +257,8 @@ label ch2_s2_bogdan2:
     show bogdan at left
     show dobrava at right
     with fade
+    stop music2 fadeout 1.0
+    play music "market music.ogg" fadein 1.0 loop
 
     "We take our leave. Back in the market, I can see Bogdan fuming."
     b "Damn! What a piece of shit!"
@@ -415,6 +426,8 @@ label ch2_s2_zygmunt5:
     show dobrava at center
     show zygmunt at right
     with fade
+    stop music fadeout 1.0
+    play music2 "mazurka (accompanied).ogg" fadein 1.0 loop
 
     "We meet with Bogdan outside of town, just down the road from the tavern where we have been staying."
     $ bmood = 'surprised'
@@ -459,6 +472,10 @@ label ch2_s2_zygmunt5:
 
 
 label ch2_s3:
+    stop music fadeout 1.0
+    stop music2 fadeout 1.0
+    play music "Quiet Moments.ogg" fadein 1.0 loop
+
     $ amood = 'neutral'
     $ bmood = 'neutral'
     $ dmood = 'neutral'
@@ -501,6 +518,8 @@ label ch2_s3:
     jump ch2_s4
 
 label ch2_s4:
+    stop music fadeout 1.0
+    play music2 "dark magic music (level 2).ogg" fadein 1.0 loop
     $ dmood = 'neutral'
     scene inn room with fade
     "I fall asleep much easier tonight."

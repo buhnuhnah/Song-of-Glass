@@ -1,6 +1,5 @@
 label ch1_s1:
     scene tavern
-
     "Customer Man" "Dobrava, tell us a story about a hero!"
     show dobrava at center with dissolve
     "I look at the crowd gathered around me. As any other bard, I enjoy the attention. And I have many stories to tell, oh I do."
@@ -12,17 +11,25 @@ label ch1_s1:
     d "Once, Dratevka came across an ant hill destroyed by a bear. He fixed it and the ants thanked him."
     d "Another time, he found a destroyed beehive and helped the bees fix it."
     d "Yet another time, he encountered ducks who were hungry and fed them some bread. The ducks thanked him."
+    stop music fadeout 1.0
+    play music2 "krakowiak (tapping).ogg" fadein 1.0
     "I pause and play a happy tune on the flute to make the show even better. The people look at me with happy faces. There is a group of adventurers at one of the tables. They stop talking and look at me expectantly."
     $ dmood = "determined"
     d "One day he came across a tower in the woods. In it, a Princess was imprisoned by an evil Witch. The Witch told Dratevka she would release the Princess if he completes two tasks for her and solves a riddle."
+    stop music2 fadeout 1.0
+    play music "kujawiak (excerpt 1).ogg" fadein 1.0
     "I pause again to play something dramatic."
     d "And so, Dratevka was tasked with picking poppy seeds out of a sack of sand by the morning."
+    stop music fadeout 1.0
+    play music2 "kujawiak (excerpt 2).ogg" fadein 1.0
     "Another pause and another tune on the flute."
     "Customer Child" "Oh, no!"
     $ dmood = "sad"
     d "He felt desperate. How was he supposed to complete such a task in such a short period of time?"
     $ dmood = "happy"
     d "Then his friends came to the rescue - the ants! They completed the task for him and when the Witch came to see the result in the morning, everything was sorted in neat piles."
+    stop music2 fadeout 1.0
+    play music "polonaise (excerpt).ogg" fadein 1.0
     "I play a victorious tune and the crowd cheers. The adventurers get up from their seats and come to watch closer."
     "There are two men, both very handsome, and a beautiful woman. I try not to be distracted. I am working, gods damn it, don't flash your stupid gorgeous faces in front of me!"
     $ dmood = "determined"
@@ -33,12 +40,16 @@ label ch1_s1:
     $ dmood = "determined"
     d "And so only the last test stood before Dratevka - the riddle. The Witch led him to a room, where nine maidens sat. All of them wore the same clothes and their faces were hidden under veils."
     d "The Witch told him \"Now find your Princess!\" and cackled."
+    stop music fadeout 1.0
+    play music2 "mazurka (excerpt).ogg" fadein 1.0
     "I make another dramatic pause to play my flute. The crowd is focused on me. I enjoy their attention."
     "Customer Man" "Oh no! How will he be able to do that? He can't tell them apart!"
     $ dmood = "happy"
     d "And again, Dratevka's friends, the bees, came to the rescue. They flew through the window and circled the head of one of the maidens. Trusting his friends, Dratevka chose her."
     d "The Witch, defeated, transformed into a bird and flew away. And the Princess, grateful to be saved, embraced Dratevka."
     d "Then they married and lived happily ever after in the witch's castle."
+    stop music2 fadeout 1.0
+    play music "oberek (excerpt).ogg" fadein 1.0
     "I end my story with a victorious tune. I really love this one and the crowd does too. I wish I had friends like Dratevka. Trust and camaraderie is invaluable."
     "The crowd claps and cheers. Money gets thrown on the coat I had spread under my feet."
     "Customer Man" "Tell us another story, Dobrava!"
@@ -52,6 +63,8 @@ label ch1_s1:
     jump ch1_s2
 
 label ch1_s2:
+    stop music fadeout 1.0
+    play music2 "Russian Polka.ogg" fadein 1.0 loop
     "The crowd disperses, returning to their now cold meals. I look down at my flute and start to clean it."
     "???" "Bard... your name is Dobrava, right?"
     $ dmood = "surprised"
@@ -203,6 +216,8 @@ label ch1_s2_3:
     jump ch1_s3
 
 label ch1_s3:
+    stop music2 fadeout 1.0
+    play music "polonaise (accompanied).ogg" fadein 1.0 loop
     scene tavern
     show bogdan at leftish
     show andia at farleft
@@ -324,6 +339,9 @@ label ch1_s3_5:
     jump ch1_s4
 
 label ch1_s4:
+    stop music fadeout 1.0
+    play music2 "oberek (orchestral).ogg" fadein 1.0 loop
+
     scene forest path
     show dobrava at farright
     with fade
@@ -441,7 +459,7 @@ label ch1_s4_7:
     if pronoun == "she":
         a "You're just hoping to score with her."
     else:
-        "You're just hoping to score with them."
+        a "You're just hoping to score with them."
     $ bmood = "happy"
     b "Even if he is, I'm glad you are comfortable with this way of living."
     d "If it makes you happy, why not do it?"
@@ -459,6 +477,8 @@ label ch1_s4_8:
     jump ch1_s5
 
 label ch1_s5:
+    stop music2 fadeout 1.0
+    play music "combat music (level 1).ogg" fadein 1.0 loop
     $ dmood = "determined"
     $ amood = "neutral"
     $ bmood = "neutral"
@@ -561,6 +581,8 @@ label ch1_s5_5:
     a "On it, on it."
     "A minute later, a small ball of fire incinerates the bandit's corpse, its limbs still writhing despite the flames. The smell of a burning body is disgusting. I move a bit away from the party and lose my lunch."
     $ zmood = "sad"
+    stop music fadeout 1.0
+    play music "kujawiak (accompanied).ogg" fadein 1.0 loop
     z "Are you alright?"
     $ dmood = "sad"
     $ amood = "surprised"
