@@ -20,15 +20,15 @@ label ch1_s8:
 menu:
     "With Andia watching her paint":
         $ andia += 5
-        $ ch8_buddy = "andia"
+        $ ch1s8_buddy = "andia"
         jump ch1_s8_andia
     "With Bogdan watching him train":
         $ bogdan += 5
-        $ ch8_buddy = "bogdan"
+        $ ch1s8_buddy = "bogdan"
         jump ch1_s8_bogdan
     "With Zygmunt playing cards":
         $ zygmunt += 5
-        $ ch8_buddy = "zygmunt"
+        $ ch1s8_buddy = "zygmunt"
         jump ch1_s8_zygmunt
     "Alone working as a bard":
         jump ch1_s8_alone
@@ -113,11 +113,6 @@ menu:
         d "Thank you!"
         a "Y-you're welcome!"
         "She stutters when she's really embarrassed. How cute!"
-        scene inn room
-        show dobrava at right
-        show andia at left
-        with fade
-
         jump ch1_s9
     "Say you'll buy her more painting supplies":
         d "Oh, I know! I'll buy you more painting supplies!"

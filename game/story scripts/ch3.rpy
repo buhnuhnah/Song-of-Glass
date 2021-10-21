@@ -1,6 +1,6 @@
 label ch3_s1:
     stop music2 fadeout 1.0
-    play music "Russian Polka.ogg" fadein 1.0 loop
+    play music "Russian Polka.ogg" fadein 1.0 volume 0.5 loop
     $ amood = 'neutral'
     $ bmood = 'neutral'
     $ dmood = 'neutral'

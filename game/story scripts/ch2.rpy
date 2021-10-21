@@ -1,6 +1,6 @@
 label ch2_s1:
     stop music fadeout 1.0
-    play music2 "Russian Polka.ogg" fadein 1.0 loop
+    play music2 "Russian Polka.ogg" fadein 1.0 volume 0.5 loop
 
     $ amood = 'neutral'
     $ bmood ='neutral'
@@ -365,6 +365,9 @@ label ch2_s2_zygmunt2:
     $ zmood = 'neutral'
     z "Ah... the boring way then. At least I get to hold hands with you."
     "Should we? I guess it {i}would{/i} be a pain in the ass if we end up separated..."
+    show zygmunt at leftish
+    show dobrava at rightish
+    with move
     "I grab Zygmunt's hand and he intertwines his fingers with mine. His hand is bigger than mine and feels strong - rough and calloused from years plucking a bowstring."
     "Zygmunt pulls out a list from his pocket. I look at it and I see very proper Elven handwriting. Andia probably wrote this while I was still sleeping."
     z "Alright first... exchanging the old Elven coin at the antiquities shop."
