@@ -7,19 +7,23 @@ label ch1_s6:
     $ bmood = 'neutral'
     $ amood = 'neutral'
 
-    scene ruins
-    show zygmunt at farright
-    show bogdan at rightish
-    show andia at leftish
-    show dobrava at farleft
-    with fade
+    scene ruins with fade
 
     "After walking for a few minutes we reach the elven ruin. It feels like an ancient place, long abandoned. At the same time I feel somewhat uneasy. What if there are more of those creatures?"
+    $ lightZ = True
+    show zygmunt at center with dissolve
     "Zygmunt moves first on high alert. He is very handsome like this in his element."
+    $ lightZ = False
+    show zygmunt at farright with move
     "Come to think of it, they are all gorgeous, focused like that."
     "If I was not so terrified I would have admired Bogdan's prowess in combat and Andia's ability to recite such complex incantations."
     "I have to admit that despite their goofiness outside work, when they are actually serious they're quite capable."
     "We reach the remains of the wall and Zygmunt jumps over it. A few seconds pass and we hear a click."
+    show zygmunt at farright with move
+    show bogdan at rightish
+    show andia at leftish
+    show dobrava at farleft
+    with dissolve
     $ zmood = 'happy'
     z "Another trap disarmed!"
     "Bogdan steps on top of the foundation and reaches out to us."
@@ -27,9 +31,9 @@ label ch1_s6:
     $ bmood = 'happy'
     "I take Bogdan's hand and he smiles at me."
     if pronoun == "they":
-        "And up you go, precious!"
+        b "And up you go, precious!"
     else:
-        "And up you go, Princess!"
+        b "And up you go, Princess!"
     $ dmood = 'surprised'
     "He moves his other hand to my waist and raises me up."
     d "Whoa!"

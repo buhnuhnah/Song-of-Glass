@@ -1,33 +1,35 @@
+
 # CHARACTER DEFINITIONS
 define a = Character("Andia")
-default amood = "neutral"
 image andia = ConditionSwitch(
     "_last_say_who == 'a'", "images/sprites/Andia/andia [amood] talk.png",
-    "True", "images/sprites/Andia/andia [amood].png")
+    "lightA", "images/sprites/Andia/andia [amood].png",
+    "True", DynamicDisplayable(grayOut, character='andia'))
 
 define b = Character("Bogdan")
-default bmood = "neutral"
 image bogdan = ConditionSwitch(
     "_last_say_who == 'b'", "images/sprites/Bogdan/bogdan [bmood] talk.png",
-    "True", "images/sprites/Bogdan/bogdan [bmood].png")
+    "lightB", "images/sprites/bogdan/bogdan [bmood].png",
+    "True", DynamicDisplayable(grayOut, character='bogdan'))
 
 define d = Character("Dobrava")
-default dmood = "neutral"
 image dobrava = ConditionSwitch(
     "_last_say_who == 'd'", "images/sprites/Dobrava/dobrava [dmood] talk.png",
-    "True", "images/sprites/Dobrava/dobrava [dmood].png")
+    "not lightD", DynamicDisplayable(grayOut, character='dobrava'),
+    "lightD and _last_say_who not in charList", "images/sprites/Dobrava/dobrava [dmood].png",
+    "True", DynamicDisplayable(grayOut, character='dobrava'))
 
 define y = Character("Yarlomila")
-default ymood = "neutral"
 image yarlomila = ConditionSwitch(
     "_last_say_who == 'y'", "images/sprites/Yarlomila/yarlomila [ymood] talk.png",
-    "True", "images/sprites/Yarlomila/yarlomila [ymood].png")
+    "lightY", "images/sprites/yarlomila/yarlomila [ymood].png",
+    "True", DynamicDisplayable(grayOut, character='yarlomila'))
 
 define z = Character("Zygmunt")
-default zmood = "neutral"
 image zygmunt = ConditionSwitch(
     "_last_say_who == 'z'", "images/sprites/Zygmunt/zygmunt [zmood] talk.png",
-    "True", "images/sprites/Zygmunt/zygmunt [zmood].png")
+    "lightZ", "images/sprites/zygmunt/zygmunt [zmood].png",
+    "True", DynamicDisplayable(grayOut, character='zygmunt'))
 
 # SPRITE POSITIONS
 transform left:
@@ -49,9 +51,9 @@ image bogdanCG = Image("images/cg/Bogdan_CG.png")
 image yarlomilaCG = Image("images/cg/Yarlomila_CG.png")
 image zygmuntCG = Image("images/cg/Zygmunt_CG.png")
 
-init python:
+init python :
     config.searchpath.extend(["game/audio", "game/audio/combat music", "game/audio/dark magic music", "game/images/backgrounds"])
-    renpy.music.register_channel("music2")
+    renpy.music.register_channel("music2", "music")
 
     # SHAKE EFFECT : Shake(position, duration, max distance)
     import math
@@ -90,6 +92,21 @@ init python:
         return renpy.display.layout.Motion(move, time, child, add_sizes=True, **properties)
     Shake = renpy.curry(_Shake)
 
+    # GRAYED OUT EFFECT
+    def grayOut(st, at, character):
+        if character == 'zygmunt':
+            mood = zmood
+        elif character == 'andia':
+            mood = amood
+        elif character == 'bogdan':
+            mood = bmood
+        elif character == 'dobrava':
+            mood = dmood
+        else:
+            mood = ymood
+        sprite = "images/sprites/" + character + "/" + character + " " + mood + ".png"
+        return Transform(im.MatrixColor(sprite, im.matrix.saturation(0.5) * im.matrix.brightness(-0.3)), zoom=0.99), None
+
     # FLASH EFFECTS
     sshake = Shake((0, 0, 0, 0), 0.5, dist=15)      # for getting hit
     flash = Fade(0.1, 0.0, 0.25, color="#fff")      # flashes white
@@ -112,6 +129,18 @@ init python:
     end_buddy = "self"      # who you get locked into in ch 3
     killYarlomila = True    # False if you save yarlomila in ch 4
 
+    # sprite definitions
+    amood, bmood, dmood, ymood, zmood = 'neutral', 'neutral', 'neutral', 'neutral', 'neutral'
+    lightA, lightB, lightY, lightZ, lightD = False, False, False, False, True
+    charList = ['a', 'b', 'd', 'y', 'z']
+
+    # music adjustments
+    renpy.music.set_volume(0.1)
+    renpy.music.set_volume(0.1, channel=u'music2')
+
+    _preferences.set_volume('music', 0.5)
+    _preferences.set_volume('music2', 0.5)
+    renpy.restart_interaction()
 label start:
      # DEBUGGING
     screen debug():
@@ -141,5 +170,5 @@ label start:
                     textbutton "Remove" action SetVariable("songbird", songbird-5)
 
     # HIDE THIS FOR FINAL PROJECT
-    show screen debug
+    hide screen debug
     jump ch1_s1

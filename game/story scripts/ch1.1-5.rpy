@@ -3,7 +3,8 @@ label ch1_s1:
     "Customer Man" "Dobrava, tell us a story about a hero!"
     show dobrava at center with dissolve
     "I look at the crowd gathered around me. As any other bard, I enjoy the attention. And I have many stories to tell, oh I do."
-    "A hero they say? They probably expect a story about someone who slew a dragon or any other monsters. But what about someone who saved a Princess because he was a good man who had made friends?"
+    "A hero they say? They probably expect a story about someone who slew a dragon or any other monsters."
+    "But what about someone who saved a Princess because he was a good man who had made friends?"
     "Let's see if they like it as much as I do."
     $ dmood = "happy"
     d "The Shoemaker Dratevka was a poor man, who travelled around Ostoya and fixed people's shoes and helped everyone in need."
@@ -13,9 +14,11 @@ label ch1_s1:
     d "Yet another time, he encountered ducks who were hungry and fed them some bread. The ducks thanked him."
     stop music fadeout 1.0
     play music2 "krakowiak (tapping).ogg" fadein 1.0
-    "I pause and play a happy tune on the flute to make the show even better. The people look at me with happy faces. There is a group of adventurers at one of the tables. They stop talking and look at me expectantly."
+    "I pause and play a happy tune on the flute to make the show even better. The people look at me with happy faces."
+    "There is a group of adventurers at one of the tables. They stop talking and look at me expectantly."
     $ dmood = "determined"
-    d "One day he came across a tower in the woods. In it, a Princess was imprisoned by an evil Witch. The Witch told Dratevka she would release the Princess if he completes two tasks for her and solves a riddle."
+    d "One day he came across a tower in the woods. In it, a Princess was imprisoned by an evil Witch."
+    d "The Witch told Dratevka she would release the Princess if he completes two tasks for her and solves a riddle."
     stop music2 fadeout 1.0
     play music "kujawiak (excerpt 1).ogg" fadein 1.0
     "I pause again to play something dramatic."
@@ -27,11 +30,14 @@ label ch1_s1:
     $ dmood = "sad"
     d "He felt desperate. How was he supposed to complete such a task in such a short period of time?"
     $ dmood = "happy"
-    d "Then his friends came to the rescue - the ants! They completed the task for him and when the Witch came to see the result in the morning, everything was sorted in neat piles."
+    d "Then his friends came to the rescue - the ants!"
+    d "They completed the task for him and when the Witch came to see the result in the morning, everything was sorted in neat piles."
     stop music2 fadeout 1.0
     play music "polonaise (excerpt).ogg" fadein 1.0
     "I play a victorious tune and the crowd cheers. The adventurers get up from their seats and come to watch closer."
-    "There are two men, both very handsome, and a beautiful woman. I try not to be distracted. I am working, gods damn it, don't flash your stupid gorgeous faces in front of me!"
+    "There are two men, both very handsome, and a beautiful woman. I try not to be distracted."
+    $ dmood = 'shy'
+    "I am working, gods damn it, don't flash your stupid gorgeous faces in front of me!"
     $ dmood = "determined"
     d "The Witch then tasked Dratevka to find a golden key in the lake. How was he supposed to find a small key at the bottom of a giant pool of water?"
     $ dmood = "happy"
@@ -64,22 +70,28 @@ label ch1_s1:
 
 label ch1_s2:
     stop music fadeout 1.0
-    play music2 "Russian Polka.ogg" fadein 1.0 loop
+    play music2 "Russian Polka.ogg" fadein 1.0 volume 0.5 loop
     "The crowd disperses, returning to their now cold meals. I look down at my flute and start to clean it."
     "???" "Bard... your name is Dobrava, right?"
     $ dmood = "surprised"
     $ zmood = "neutral"
     show dobrava at farright with move
     show zygmunt at rightish with dissolve
+    show bogdan at leftish behind zygmunt with dissolve
+    show andia at farleft behind bogdan with dissolve
     "I look up again, surprised. The pretty adventurers are still gathered around me."
     d "...! Yes, that's right. I'm Dobrava."
     $ dmood = "neutral"
+    $ lightZ = True
     "There's a handsome half-elven man with two daggers at his hips. Must be some kind of rogue."
-    show bogdan at leftish behind zygmunt with dissolve
+    $ lightZ = False
+    $ lightB = True
     "Another beautiful man, this one a human in full armor, stands to his left. Some sort of fighter, probably."
-    show andia at farleft with dissolve
+    $ lightB = False
+    $ lightA = True
     "And a gorgeous elven lady with a stern expression stands slightly behind them. A pointy, wide-brimmed hat gives her away as some sort of mage."
     $ dmood = "shy"
+    $ lightA = False
     "Ohhh quit staring, Dobrava. So what if you suddenly got approached by so many pretty faces? And bodies? You're not too shabby-looking yourself, after all..."
     $ dmood = "happy"
     d "How can I help you, handsome?"
@@ -101,6 +113,7 @@ menu:
         $ dmood = "shy"
         d "Quiet, Marysia! I told you not to speak about it! Especially not in front of strangers..."
         $ zmood = "happy"
+        $ amood = 'annoyed'
         "Zygmunt laughs openly at that and the other man chuckles too. The elven woman looks like she does not want to be part of this conversation, cringing visibly."
         jump ch1_s2_2
 
@@ -109,7 +122,6 @@ label ch1_s2_2:
     $ zmood = "neutral"
     "I look at the other members of the party expectantly."
     b "Ahh... my name is Bogdan. I stab things for a living."
-    $ amood = "annoyed"
     a "A very eloquent way to introduce yourself, Bogdan. I applaud your creativity. I'm Andia."
     $ dmood = "happy"
     d "Are you the kind of wizard who blows things up?"
@@ -343,13 +355,14 @@ label ch1_s4:
     play music2 "oberek (orchestral).ogg" fadein 1.0 loop
 
     scene forest path
-    show dobrava at farright
+    show dobrava at center
     with fade
     $ dmood = "neutral"
     $ amood = "annoyed"
     $ bmood = "surprised"
     $ zmood = "happy"
     "We've been on the road for half an hour now and I can't help but realise one thing about my party..."
+    show dobrava at farright with move
     show bogdan at leftish
     show andia at farleft
     show zygmunt at rightish
@@ -420,6 +433,7 @@ label ch1_s4_4:
 
 label ch1_s4_5:
     $ bmood = "surprised"
+    $ dmood = 'surprised'
     if pronoun == "she":
         b "Oh no... she's disgusted with me!"
     else:
@@ -483,15 +497,23 @@ label ch1_s5:
     $ amood = "neutral"
     $ bmood = "neutral"
     $ zmood = "determined"
-    scene forest path
-    show bogdan at rightish
+    scene forest path with fade
+    show bogdan at offscreenleft
+    show andia at offscreenleft
+    show dobrava at offscreenleft
+    show zygmunt at offscreenleft
+    "As we get closer to the location of the ruin, the party grows more serious and the playful banter stops."
+    show zygmunt at center with move
+    "Zygmunt moves first on high alert, looking around carefully and everyone unsheathes their weapons."
     show zygmunt at farright
+    show bogdan at center
+    with move
+    "Bogdan is a few steps behind him."
+    show bogdan at rightish
     show dobrava at leftish
     show andia at farleft
-    with fade
-
-    "As we get closer to the location of the ruin, the party grows more serious and the playful banter stops."
-    "Zygmunt moves first on high alert, looking around carefully and everyone unsheathes their weapons. Bogdan is a few steps behind him. Andia and I are in the back."
+    with move
+    "Andia and I are in the back."
     "I take my flute in hand. My spells manifest through song, so I need it to be useful."
     $ dmood = "angry"
     d "Are we expecting trouble?"
@@ -511,7 +533,7 @@ label ch1_s5:
     $ bmood = "angry"
     "Bogdan and Zygmunt look back at Andia and they seem to reach some kind of wordless agreement. Zygmunt aims his bow at the man."
     "They cannot seriously be thinking about killing him?! So far he's done nothing to us!"
-    $ zmood = "neutral"
+    $ zmood = "angry"
     z "Stop right there or I will shoot!"
     "...They are thinking of killing him. But that's murder in cold blood!"
     "The man doesn't respond and continues walking towards us."
@@ -538,11 +560,15 @@ label ch1_s5_2:
     $ zmood = "angry"
     z "What are you doing, Dobrava!"
     "The bandit looks up at us and I see his eyes are glowing red. With inhuman speed, he closes the distance between us in an instant."
+    $ lightD = False
+    $ lightB = True
     show bogdan at farright
     show dobrava at leftish
     show zygmunt at rightish
     with move
     "But Bogdan is quicker.He beheads the man when he is mere inches away from us, poised to strike. The bandit's clawed hand barely misses me."
+    $ lightD = True
+    $ lightB = False
     jump ch1_s5_5
 
 label ch1_s5_3:
@@ -550,28 +576,43 @@ label ch1_s5_3:
     $ bmood = "sad"
     b "That's not a human..."
     "The bandit looks up at us and I see his eyes are glowing red. With inhuman speed he closes the distance between us in an instant."
+    $ lightD = False
+    $ lightZ = True
     "Zygmunt fires an arrow. A headshot! The arrow embeds itself in the man's head but... he's still moving..."
+    $ lightB = True
+    $ lightZ = False
     show bogdan at farright
     show zygmunt at rightish
     with move
     "Bogdan runs past Zygmunt and beheads the bandit when he is inches away from the half-elf, poised to strike. The bandit's clawed hand barely misses Zygmunt."
+    $ lightB = False
+    $ lightD = True
     jump ch1_s5_5
 
 label ch1_s5_4:
     "I'm too terrified to say anything so I just stand there, frozen."
     "The bandit looks up at us and I see his eyes are glowing red. With inhuman speed he closes the distance between us in an instant."
+    $ lightD = False
+    $ lightZ = True
     "Zygmunt fires an arrow. A headshot! The arrow embeds itself in the man's head but... he's still moving..."
+    $ lightZ = False
+    $ lightB = True
     show bogdan at farright
     show zygmunt at rightish
     with move
     "Bogdan runs past Zygmunt and beheads the bandit when he is inches away from the half-elf, poised to strike. The bandit's clawed hand barely misses Zygmunt."
+    $ lightD = True
     jump ch1_s5_5
 
 label ch1_s5_5:
     $ dmood = "surprised"
     "Wait... clawed hand?! Red eyes?! Inhuman speed?!"
     $ bmood = "angry"
+    $ lightD = False
+    $ lightB = True
     "Bogdan stabs the corpse of the bandit a few more times but, to my horror, its limbs are still moving despite the head being firmly removed from its body."
+    $ lightD = True
+    $ lightB = False
     d "What is this?!"
     $ bmood = "neutral"
     b "Andia, cast a ball of fire."
@@ -622,11 +663,12 @@ menu:
     "Hug Bogdan":
         $ bogdan += 5
         show zygmunt at leftish
-        show dobrava at right
+        show dobrava at rightish
         with move
         $ bmood = 'surprised'
         "I pass by Zygmunt and go to Bogdan. It's a bit awkward at first when I hug him, though he hugs me back regardless."
         $ bmood = 'shy'
+        show dobrava at right with move
         "But when I hide my face in his chest, he pats my head and I no longer feel like this is wrong. He smells so nice too, a very manly scent which I cannot quite describe."
         $ amood = 'happy'
         $ zmood = 'happy'
