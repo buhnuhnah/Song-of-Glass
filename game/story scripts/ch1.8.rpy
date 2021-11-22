@@ -1,16 +1,24 @@
 label ch1_s8:
-    stop music fadeout 1.0
+    stop music fadeout 1.5
     play music2 "Quiet Moments.ogg" fadein 1.0 loop
+    scene tavern with fade
 
-    scene tavern
+    $ dmood = 'neutral'
+    $ amood = 'neutral'
+    $ bmood = 'neutral'
+    $ zmood = 'neutral'
+
+    "Back in the tavern, my companions book rooms for the night. We decide not to talk about today's events until morning and instead take time to recuperate."
+
+    $ lightD = False
     show zygmunt at farright
     show bogdan at rightish
     show andia at leftish
     show dobrava at farleft
-    with fade
+    with dissolve
 
-    "Back in the tavern, my companions book rooms for the night. We decide not to talk about today's events until morning and instead take time to recuperate."
     z "We tend to spend the evenings separately, Dobrava, as each of us relaxes better doing different things."
+    $ lightD = True
     a "You are welcome to do whatever you want or join one of us."
     d "What's everyone going to do?"
     a "I'll be in my room painting."
@@ -46,7 +54,11 @@ label ch1_s8_andia:
     with fade
 
     "Andia's room is very similar to mine. I suppose all the tavern guestrooms are the same."
+    $ lightA = True
+    $ lightD = False
     "Andia takes out some sheets of paper and painting supplies from her satchel by the bed."
+    $ lightA = False
+    $ lightD = True
     $ dmood = 'happy'
     d "What are you going to paint?"
     $ amood = 'neutral'
@@ -66,7 +78,11 @@ label ch1_s8_andia1:
     $ dmood ='happy'
     d "Of course! I'd be very happy if you painted me!"
     a "...Thank you. Sit down on the chair, please."
+    $ lightA = True
+    $ lightD = False
     "Andia lights a candle next to me with a snap of her fingers and sits down on the bed."
+    $ lightA = False
+    $ lightD = True
     $ dmood = 'surprised'
     d "You make magic look so easy!"
     $ amood = 'neutral'
@@ -113,12 +129,14 @@ menu:
         d "Thank you!"
         a "Y-you're welcome!"
         "She stutters when she's really embarrassed. How cute!"
+        "Eventually, Andia yawns and I feel tired too so I decide to return to my room."
         jump ch1_s9
     "Say you'll buy her more painting supplies":
         d "Oh, I know! I'll buy you more painting supplies!"
         $ amood = 'neutral'
         a "I guess I... would appreciate that. Thank you."
         d "No, thank you!"
+        "Eventually, Andia yawns and I feel tired too so I decide to return to my room."
         jump ch1_s9
 
 label ch1_s8_andia2:
@@ -155,6 +173,7 @@ menu:
         $ zmood = 'happy'
         z "Same here. Good luck, you two."
         b "Luck? I don't need luck, I have Dobrava!"
+        $ dmood = 'happy'
         "I just laugh in response."
         jump ch1_s8_bogdan2
     "Say you just want to be friends with Bogdan":
@@ -248,6 +267,7 @@ label ch1_s8_bogdan4:
     d "Thank you for sharing this with me."
     $ bmood = 'shy'
     b "Ehh... no need to thank me. If you want to know something, just ask."
+    jump ch1_s8_bogdan6
 
 label ch1_s8_bogdan5:
     $ dmood = 'neutral'
@@ -262,12 +282,13 @@ label ch1_s8_bogdan6:
     $ dmood = 'shy'
 
     scene tavern
-    show zygmunt at left
+    show zygmunt at farleft
     show bogdan at center
     show dobrava at right
     with fade
 
     z "Whoa... what's wrong?!"
+    show zygmunt at left with move
     "Zygmunt leaves his table where he was playing cards with some other tavern patrons and runs up to us."
     $ bmood = 'sad'
     b "Dobrava is sick."
@@ -294,8 +315,9 @@ label ch1_s8_bogdan6:
         b "Look at how red her face is!"
     else:
         b "Look at how red their face is!"
-    "Zygmunt looks at the shirtless Bogdan kneeling in front of me and then at my face which is surely beet red. Then he smiles brightly, understanding in his eyes."
+    "Zygmunt looks at the shirtless Bogdan kneeling in front of me and then at my face which is surely beet red."
     $ zmood = 'happy'
+    "Then he smiles brightly, understanding in his eyes."
     z "Well, excuse me then, it looks like you've got the situation under control, Bogdi. I'm going back to my table."
     if pronoun == 'she':
         b "Aren't you even a bit worried about her health?!"
@@ -304,6 +326,7 @@ label ch1_s8_bogdan6:
         b "Aren't you even a bit worried about their health?!"
         z "They're not sick, Bogdan. You're just embarrassing them parading around half-naked. How cute."
     $ bmood = 'surprised'
+    hide zygmunt with dissolve
     "Chuckling, he leaves. Bogdan looks at me with wide eyes."
     b "Oh..."
     "I hide my face in my hands. This is so embarrassing."
@@ -311,7 +334,9 @@ label ch1_s8_bogdan6:
     $ bmood = 'shy'
     b "Sorry... there's no need to be sorry... it's a misunderstanding on my part..."
     b "I will take my leave."
+    hide bogdan with dissolve
     "Well, that was awkward."
+    "Night comes and I try to get some sleep."
     jump ch1_s9
 
 label ch1_s8_zygmunt:
@@ -334,6 +359,8 @@ menu:
         jump ch1_s8_zygmunt2
 
 label ch1_s8_zygmunt2:
+    $ lightZ = True
+    $ lightD = False
     hide bogdan
     hide andia
     show zygmunt at left
@@ -341,6 +368,8 @@ label ch1_s8_zygmunt2:
     with fade
 
     "Zygmunt leads me to one of the tables in the middle of the tavern. We sit down opposite each other. From his bag he pulls out a deck of cards."
+    $ lightZ = False
+    $ lightD = True
     $ dmood = 'neutral'
     d "What will we be playing?"
     $ zmood = 'neutral'
@@ -413,17 +442,19 @@ label ch1_s8_zygmunt5:
     z "Forget it... that might have been too much to ask..."
     $ dmood = 'happy'
     $ zmood = 'surprised'
-    scene zygmuntCG with fade
+    show dobrava at center with move
     "I get up and go around the table to his side. Then I grab him by the collar of his shirt and kiss him. He is surprised at first but kisses me back."
     "Well, I have to say he is good at this. But when he licks my lower lip, asking for permission to deepen the kiss, I pull back. That's too much for my first kiss with him."
     "Either way, I enjoyed our moment of intimacy and I don't regret it. I smile at him and he smiles back."
     z "I didn't expect you would agree to that..."
     d "Then I'm happy to have surprised you."
+    $ zmood = 'shy'
     "We play a few more rounds of cards and pass the evening in happy companionship. Eventually it's time to go to sleep, so we head to our respective rooms."
     jump ch1_s9
 label ch1_s8_zygmunt6:
     z "Forget it... that might have been too much to ask..."
     $ dmood = 'neutral'
+    show dobrava at center with move
     "I go around the table to his side and lean in front of him. But I kiss him on the cheek. When I pull back he looks surprised and a bit disappointed."
     $ zmood = 'sad'
     z "That's not what I meant..."

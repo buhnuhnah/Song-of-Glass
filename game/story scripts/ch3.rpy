@@ -166,6 +166,7 @@ label ch3_s2_zygmunt3:
     z "It is! It's true we only met a couple of days ago, but so much has happened since then. And I feel an irresistible pull towards you too."
     "He stops walking and I stop too. He bends down a bit to put his face at the same height as mine."
     z "See? Something's pulling me towards you."
+    scene zygmuntCG with fade
     "And he kisses me firmly on the lips. The kiss quickly turns passionate and we get lost in each other's taste."
     "We are interrupted by the sounds of clapping and cat-calling. I push Zygmunt away and he pouts."
 
@@ -173,11 +174,10 @@ label ch3_s2_zygmunt3:
     $ zmood = 'happy'
     $ bmood = 'happy'
     $ amood = 'happy'
-    show dobrava at farright
-    show zygmunt at rightish
-    with move
-    show bogdan at leftish
     show andia at farleft
+    show bogdan at farright
+    show zygmunt at rightish
+    show dobrava at leftish
     with dissolve
 
     b "Woohoo! Don't mind us. Keep going!"

@@ -44,6 +44,10 @@ transform farleft:
     xalign 0.0 yalign 1.0
 transform farright:
     xalign 0.95 yalign 1.0
+transform hugLeft:
+    xalign 0.25 yalign 1.0
+transform hugRight:
+    xalign 0.7 yalign 1.0
 
 # CG IMAGES
 image andiaCG = Image("images/cg/Andia_CG.png")
@@ -96,15 +100,24 @@ init python :
     def grayOut(st, at, character):
         if character == 'zygmunt':
             mood = zmood
+            talking = zOpen
         elif character == 'andia':
             mood = amood
+            talking = aOpen
         elif character == 'bogdan':
             mood = bmood
+            talking = bOpen
         elif character == 'dobrava':
             mood = dmood
+            talking = dOpen
         else:
             mood = ymood
-        sprite = "images/sprites/" + character + "/" + character + " " + mood + ".png"
+            talking = yOpen
+
+        if talking:
+            sprite = "images/sprites/" + character + "/" + character + " " + mood + " talk.png"
+        else:
+            sprite = "images/sprites/" + character + "/" + character + " " + mood + ".png"
         return Transform(im.MatrixColor(sprite, im.matrix.saturation(0.5) * im.matrix.brightness(-0.3)), zoom=0.99), None
 
     # FLASH EFFECTS
@@ -132,6 +145,7 @@ init python :
     # sprite definitions
     amood, bmood, dmood, ymood, zmood = 'neutral', 'neutral', 'neutral', 'neutral', 'neutral'
     lightA, lightB, lightY, lightZ, lightD = False, False, False, False, True
+    aOpen, bOpen, yOpen, zOpen, dOpen = False, False, False, False, False
     charList = ['a', 'b', 'd', 'y', 'z']
 
     # music adjustments

@@ -2,8 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 16: is not terminated with a newline. (Check strings and parenthesis.)
-    image dobrava = ConditionSwitch(
+File "game/story scripts/ch1.6-7.rpy", line 130: is not terminated with a newline. (Check strings and parenthesis.)
+(Perhaps you left out a ' at the end of the first line.)
+        $ zmood = 'neutral
 
 Ren'Py Version: Ren'Py 7.4.4.1439
-Fri Oct 15 11:37:22 2021
+Mon Nov 22 14:24:58 2021

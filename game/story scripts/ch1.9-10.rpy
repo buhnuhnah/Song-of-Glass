@@ -4,9 +4,10 @@ label ch1_s9:
 
     scene inn room with fade
     "I toss and turn and can't fall asleep. When I do, I dream of combat and scary monsters who used to be human but no longer are."
+    $ dmood = 'sad'
+    show dobrava at center with dissolve
     d "No! No!"
     $ dmood = 'surprised'
-    show dobrava at center with dissolve
     "A knock on the door wakes me up. I get dressed quickly and move to open the door."
     stop music fadeout 1.0
     play music2 "Quiet Moments.ogg" fadein 1.0 loop
@@ -18,8 +19,8 @@ label ch1_s9:
         jump ch1_s9_andia
 
 label ch1_s9_zygmunt:
-    show dobrava at right with move
-    show zygmunt at left with dissolve
+    show dobrava at rightish with move
+    show zygmunt at farleft with dissolve
     $ zmood = 'sad'
     z "You were screaming. Did you have a nightmare?"
     $ dmood = 'sad'
@@ -35,13 +36,17 @@ label ch1_s9_zygmunt2:
     d "Sure. That would help."
     z "Can I come inside?"
     d "Sure."
+    show dobrava at right
+    show zygmunt at left
+    with move
     "I move to the side and let Zygmunt enter my room. He sits on the bed and pats the spot next to him. I sit down."
     z "We've all been through this... first combat, first kill. It's hard at first... getting used to the brutality of it and to taking the lives of others."
     d "Yes, it's easier for me with the monsters... the undead that are supposed to be dead. I feel like it's a mercy to put those bones to rest."
     d "But when I thought that zombie was a human? I couldn't handle the thought of ending someone else's life. Even though it wouldn't have been by my hand."
     d "Just standing by while others kill... it's like you've killed too."
     z "It's not the same feeling, but I get what you mean. I hope you never have to take another person's life yourself."
-    z "As for why we were so quick to try and kill that man before, even before we knew he was an undead... the Green Zmiy bandits are evil bastards who kidnap women and children and sell them to slavers."
+    z "As for why we were so quick to try and kill that man before, even before we knew he was an undead..."
+    z "The Green Zmiy bandits are evil bastards who kidnap women and children and sell them to slavers."
     z "It's better to eliminate every one of them. But still, they are human. Even though they lack basic human morals."
     d "I didn't know they were that evil..."
     z "They are. I hope that makes it a bit easier for you."
@@ -55,7 +60,7 @@ label ch1_s9_zygmunt3:
     jump ch1_s9_zygmunt4
 
 label ch1_s9_zygmunt4:
-    $ zmood = 'neutral'
+    $ zmood = 'sad'
     z "But if you want to quit our party, I understand."
     "Do I want to quit the party? Is it too much for me?"
 menu:
@@ -82,8 +87,8 @@ label ch1_s9_zygmunt5:
 
 label ch1_s9_bogdan:
     $ bmood = 'surprised'
-    show dobrava at right with move
-    show bogdan at left with dissolve
+    show dobrava at rightish with move
+    show bogdan at farleft with dissolve
     b "You were screaming! Did you have a nightmare?"
     $ dmood = 'sad'
     d "Yes... about what happened today."
@@ -104,6 +109,9 @@ label ch1_s9_bogdan2:
     d "Sure. That would help."
     b "Can I come inside?"
     d "Sure."
+    show dobrava at right
+    show bogdan at left
+    with move
     "I move to the side and let Bogdan enter my room. He paces the room and I sit down on the bed."
     b "It's not about.... the misunderstanding today, right?"
     $ dmood = 'surprised'
@@ -130,7 +138,7 @@ label ch1_s9_bogdan2:
     jump ch1_s9_bogdan3
 
 label ch1_s9_bogdan3:
-    $ bmood = 'neutral'
+    $ bmood = 'sad'
     b "But if you want to quit being an adventurer, I totally get it and I will speak wth Zygmunt on your behalf."
     $ dmood = 'neutral'
     "Do I want to quit the party? Is it too much for me?"
@@ -142,6 +150,7 @@ menu:
 
 label ch1_s9_bogdan4:
     d "I'm not a quitter. It's too early to give up. I've barely been with you one day."
+    $ bmood = 'neutral'
     b "You really don't have to force yourself!"
     d "I'm not! I want to spend more time with you... get to know you better, achieve something together!"
     $ bmood = 'happy'
@@ -159,8 +168,8 @@ label ch1_s9_bogdan4:
 
 label ch1_s9_andia:
     $ amood = 'sad'
-    show dobrava at right with move
-    show andia at left with dissolve
+    show dobrava at rightish with move
+    show andia at farleft with dissolve
     a "You were screaming. Did you have a nightmare?"
     $ dmood = 'sad'
     d "Yes... about what happened today."
@@ -180,6 +189,9 @@ label ch1_s9_andia2:
     d "Sure. That would help."
     a "Can I come inside?"
     d "Sure."
+    show dobrava at right
+    show andia at left
+    with move
     "I move to the side and let Andia enter my room. I sit down on the bed and Andia takes the chair and moves it to sit opposite me."
     a "It's about the fight with the zombie today, isn't it?"
     d "It is. This was my first fight, the first kill I've witnessed. I guess the brutality of it... is something I have to get used to."
@@ -199,7 +211,7 @@ label ch1_s9_andia2:
     jump ch1_s9_andia3
 
 label ch1_s9_andia3:
-    $ amood = 'neutral'
+    $ amood = 'sad'
     a "But if you want to quit being an adventurer... after today it would be understandable."
     "Do I want to quit the party? Is it too much for me?"
 menu:
@@ -211,6 +223,7 @@ menu:
 label ch1_s9_andia4:
     $ dmood = 'neutral'
     d "I'm not a quitter. It's too early to give up. I've barely been with you one day."
+    $ amood = 'neutral'
     a "Okay, but if you ever feel like it's too much for you, let me know."
     d "I want to spend more time with you... get to know you better, achieve something together."
     a "That's good. I'd be sad if I had to lose you as a member of our team."

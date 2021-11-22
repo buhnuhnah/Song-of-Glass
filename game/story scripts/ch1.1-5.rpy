@@ -44,19 +44,22 @@ label ch1_s1:
     d "But his friends, the ducks, came to help!"
     "Customer Child" "Awesome!"
     $ dmood = "determined"
-    d "And so only the last test stood before Dratevka - the riddle. The Witch led him to a room, where nine maidens sat. All of them wore the same clothes and their faces were hidden under veils."
+    d "And so only the last test stood before Dratevka - the riddle."
+    d "The Witch led him to a room, where nine maidens sat. All of them wore the same clothes and their faces were hidden under veils."
     d "The Witch told him \"Now find your Princess!\" and cackled."
     stop music fadeout 1.0
     play music2 "mazurka (excerpt).ogg" fadein 1.0
     "I make another dramatic pause to play my flute. The crowd is focused on me. I enjoy their attention."
     "Customer Man" "Oh no! How will he be able to do that? He can't tell them apart!"
     $ dmood = "happy"
-    d "And again, Dratevka's friends, the bees, came to the rescue. They flew through the window and circled the head of one of the maidens. Trusting his friends, Dratevka chose her."
+    d "And again, Dratevka's friends, the bees, came to the rescue."
+    d "They flew through the window and circled the head of one of the maidens. Trusting his friends, Dratevka chose her."
     d "The Witch, defeated, transformed into a bird and flew away. And the Princess, grateful to be saved, embraced Dratevka."
     d "Then they married and lived happily ever after in the witch's castle."
     stop music2 fadeout 1.0
     play music "oberek (excerpt).ogg" fadein 1.0
-    "I end my story with a victorious tune. I really love this one and the crowd does too. I wish I had friends like Dratevka. Trust and camaraderie is invaluable."
+    "I end my story with a victorious tune. I really love this one and the crowd does too."
+    "I wish I had friends like Dratevka. Trust and camaraderie is invaluable."
     "The crowd claps and cheers. Money gets thrown on the coat I had spread under my feet."
     "Customer Man" "Tell us another story, Dobrava!"
     "Customer Child" "Yes, one more! One more!"
@@ -113,8 +116,14 @@ menu:
         $ dmood = "shy"
         d "Quiet, Marysia! I told you not to speak about it! Especially not in front of strangers..."
         $ zmood = "happy"
+        $ bmood = "happy"
         $ amood = 'annoyed'
+        $ zOpen = True
+        $ bOpen = True
         "Zygmunt laughs openly at that and the other man chuckles too. The elven woman looks like she does not want to be part of this conversation, cringing visibly."
+        $ zOpen = False
+        $ bOpen = False
+        $ bmood = 'neutral'
         jump ch1_s2_2
 
 label ch1_s2_2:
@@ -131,7 +140,8 @@ label ch1_s2_2:
     d "You are a man of words, truly."
     "They seem like nice folks. But what do they want with me?"
     d "So... what brings you to me? Did you like the story? My playing? Or just my looks?"
-    z "All of it, of course! As you can see we are a party of three adventurers: a frontline fighter, a stealthy rogue, and a powerful wizard. What is missing in our lives then?"
+    z "All of it, of course! As you can see we are a party of three adventurers: a frontline fighter, a stealthy rogue, and a powerful wizard."
+    z "What is missing in our lives then?"
     $ bmood = "surprised"
     b "...Money?"
     a "Gods, help us!"
@@ -261,7 +271,8 @@ label ch1_s3_2:
     d "Please tell us more about the history of the ruin, Andia."
     $ amood = "happy"
     a "Finally someone interested in more than just riches and combat. Very well. As you know, Dobrava, Ostoya was the land of elves, called Eduan."
-    a "That was before the Darkness came and swallowed the whole continent, making vast areas of it unlivable. The Elves could not stand living among the shorter-living races and most of them left for the New Land and Kingdoms of the Sun and Moon."
+    a "That was before the Darkness came and swallowed the whole continent, making vast areas of it unlivable."
+    a "The Elves could not stand living among the shorter-living races and most of them left for the New Land and Kingdoms of the Sun and Moon."
     a "But their ruins remained. Many still hold secrets behind locked doors as few people these days can read the ancient Elven tongue."
     d "Do you know the Elven tongue, Andia?"
     $ amood = "neutral"
@@ -354,32 +365,36 @@ label ch1_s4:
     stop music fadeout 1.0
     play music2 "oberek (orchestral).ogg" fadein 1.0 loop
 
-    scene forest path
-    show dobrava at center
-    with fade
+    scene forest path with fade
     $ dmood = "neutral"
     $ amood = "annoyed"
     $ bmood = "surprised"
     $ zmood = "happy"
     "We've been on the road for half an hour now and I can't help but realise one thing about my party..."
-    show dobrava at farright with move
     show bogdan at leftish
     show andia at farleft
+    show dobrava at farright
     show zygmunt at rightish
     with dissolve
     b "I took off my pants and then she ran away from me screaming!"
+    $ bOpen = True
     "...they never stop talking."
+    $ bOpen = False
     b "My feelings were really hurt!"
+    $ zOpen = True
     "Zygmunt laughs really loudly, holding his stomach and Andia facepalms."
 menu:
     "Say you feel sorry for Bogdan":
         $ bogdan += 5
+        $ zOpen = False
         jump ch1_s4_2
     "Laugh with Zygmunt":
         $ zygmunt += 5
+        $ zOpen = False
         jump ch1_s4_3
     "Cringe with Andia":
         $ andia += 5
+        $ zOpen = False
         jump ch1_s4_4
 
 label ch1_s4_2:
@@ -498,27 +513,30 @@ label ch1_s5:
     $ bmood = "neutral"
     $ zmood = "determined"
     scene forest path with fade
-    show bogdan at offscreenleft
-    show andia at offscreenleft
-    show dobrava at offscreenleft
-    show zygmunt at offscreenleft
     "As we get closer to the location of the ruin, the party grows more serious and the playful banter stops."
-    show zygmunt at center with move
+    $ lightZ = True
+    show zygmunt at center with dissolve
     "Zygmunt moves first on high alert, looking around carefully and everyone unsheathes their weapons."
-    show zygmunt at farright
-    show bogdan at center
-    with move
+    $ lightZ = False
+    $ lightB = True
+    show zygmunt at farright with move
+    show bogdan at center with dissolve
     "Bogdan is a few steps behind him."
-    show bogdan at rightish
+    $ lightB = False
+    $ lightA = True
+    show bogdan at rightish with move
     show dobrava at leftish
     show andia at farleft
-    with move
+    with dissolve
     "Andia and I are in the back."
+    $ lightA = False
     "I take my flute in hand. My spells manifest through song, so I need it to be useful."
     $ dmood = "angry"
     d "Are we expecting trouble?"
     a "Shh..."
+    $ lightA, lightD = True, False
     "Andia puts a finger to her lips. I should follow her advice and be quiet. After all, they are familiar with this adventuring thing. I should think they know what they are doing."
+    $ lightA, lightD = False, True
     $ dmood = "surprised"
     $ amood = "surprised"
     $ bmood = "surprised"
@@ -531,7 +549,9 @@ label ch1_s5:
     $ amood = "annoyed"
     a "A bandit of the Green Zmiy!"
     $ bmood = "angry"
+    $ lightB, lightZ, lightD = True, True, False
     "Bogdan and Zygmunt look back at Andia and they seem to reach some kind of wordless agreement. Zygmunt aims his bow at the man."
+    $ lightB, lightZ, lightD = False, False, True
     "They cannot seriously be thinking about killing him?! So far he's done nothing to us!"
     $ zmood = "angry"
     z "Stop right there or I will shoot!"
@@ -602,6 +622,7 @@ label ch1_s5_4:
     with move
     "Bogdan runs past Zygmunt and beheads the bandit when he is inches away from the half-elf, poised to strike. The bandit's clawed hand barely misses Zygmunt."
     $ lightD = True
+    $ lightB = False
     jump ch1_s5_5
 
 label ch1_s5_5:
@@ -614,13 +635,17 @@ label ch1_s5_5:
     $ lightD = True
     $ lightB = False
     d "What is this?!"
-    $ bmood = "neutral"
     b "Andia, cast a ball of fire."
     $ amood = "annoyed"
     a "You know I loathe fire spells..."
+    $ lightD = False
+    $ lightB = True
     "Bogdan just glares at Andia."
+    $ lightD = True
+    $ lightB = False
     a "On it, on it."
-    "A minute later, a small ball of fire incinerates the bandit's corpse, its limbs still writhing despite the flames. The smell of a burning body is disgusting. I move a bit away from the party and lose my lunch."
+    "A minute later, a small ball of fire incinerates the bandit's corpse, its limbs still writhing despite the flames."
+    "The smell of a burning body is disgusting. I move a bit away from the party and lose my lunch."
     $ zmood = "sad"
     stop music fadeout 1.0
     play music "kujawiak (accompanied).ogg" fadein 1.0 loop
@@ -628,17 +653,22 @@ label ch1_s5_5:
     $ dmood = "sad"
     $ amood = "surprised"
     $ bmood = 'surprised'
+    $ lightZ = True
     "Zygmunt is holding my hair back as I vomit until there's nothing left to throw up. I look up at him but can't see him through my tears."
     $ bmood = 'sad'
     $ amood = 'sad'
     "He hands me a canteen of water which I accept gratefully and use to clean my mouth. Then he wipes my tears off with a handkerchief."
     z "Dobrava... talk to me..."
+    $ lightD = False
     "Zygmunt looks like he is about to cry himself."
+    $ lightZ = False
+    $ lightD = True
     a "We shouldn't have brought Dobrava..."
     $ dmood = 'angry'
-    d "Whatever you say, just don't say that! I'm alright! It's just my first time being in a fight...my first time witnessing the death of something so human!"
+    d "Whatever you say, just don't say that! I'm alright!"
+    d "It's just my first time being in a fight...my first time witnessing the death of something so human!"
     "They all go quiet as they look at me."
-    $ bmood = 'neutral'
+    $ bmood = 'sad'
     $ dmood = 'sad'
     b "Each and every one of us has been through this..."
     a "Yes, it's not easy at first. But you get used to it... however horrible that sounds."
@@ -651,45 +681,76 @@ menu:
     "Hug Zygmunt":
         $ zygmunt += 5
         show dobrava at center with move
-        $ zmood = 'neutral'
+        $ zmood = 'surprised'
+        $ bmood = 'neutral'
+        $ amood = 'neutral'
+        $ lightZ = True
         "Not giving Zygmunt anytime to process what I've just said, I hug him tightly. He looks surprised, but still hugs me back."
         $ zmood = 'shy'
+        $ dmood = 'neutral'
         "A soft kiss is placed at the top of my head. This feels nice... he smells so nice too, like a forest after it's rained."
         $ bmood = 'happy'
         $ amood = 'happy'
+        $ lightZ = False
         show dobrava at leftish with move
+        $ lightB = True
+        $ lightA = True
+        $ lightD = False
         "After a moment I let go of him and look at the rest of the party. Bogdan and Andia are smiling at me and Andia even winks. What's that about?"
+        $ lightB = False
+        $ lightA = False
+        $ lightD = True
         jump ch1_s5_6
     "Hug Bogdan":
         $ bogdan += 5
         show zygmunt at leftish
         show dobrava at rightish
         with move
+        show dobrava at hugRight with move
         $ bmood = 'surprised'
+        $ amood = 'neutral'
+        $ zmood = 'neutral'
+        $ lightB = True
         "I pass by Zygmunt and go to Bogdan. It's a bit awkward at first when I hug him, though he hugs me back regardless."
         $ bmood = 'shy'
-        show dobrava at right with move
         "But when I hide my face in his chest, he pats my head and I no longer feel like this is wrong. He smells so nice too, a very manly scent which I cannot quite describe."
+        $ dmood = 'neutral'
+        "It feels safe, like all is right in the world."
+        $ lightB = False
         $ amood = 'happy'
         $ zmood = 'happy'
         show dobrava at rightish with move
-        "It feels safe, like all is right in the world. After a moment I let go of him and look at the rest of the party. Zygmunt and Andia are smiling at me and Andia even winks. What's that about?"
+        $ lightZ = True
+        $ lightA = True
+        $ lightD = False
+        "After a moment I let go of him and look at the rest of the party. Zygmunt and Andia are smiling at me and Andia even winks. What's that about?"
+        $ lightZ = False
+        $ lightA = False
+        $ lightD = True
         jump ch1_s5_6
     "Hug Andia":
         $ andia += 5
-        show dobrava at left with move
+        show dobrava at hugLeft with move
         show andia behind dobrava
         $ amood = 'surprised'
+        $ zmood = 'neutral'
+        $ bmood = 'neutral'
+        $ lightA = True
         "I pass by Zygmunt and go to Andia. She is very surprised when I hug her and takes a moment to hug me back."
         $ amood = 'shy'
+        $ dmood = 'neutral'
         "But when she does I feel warmth and calmness like I've never felt before. She smells so nice too, of spring flowers."
         $ zmood = 'happy'
         $ bmood = 'happy'
         show dobrava at leftish with move
+        $ lightA = False
         "Zygmunt and Bogdan are smiling at me and Zygmunt even winks. What's that about?"
         jump ch1_s5_6
     "Nevermind.":
         "No, this is too awkward. I put my hands around my waist and hug myself."
+        $ amood = 'sad'
+        $ zmood = 'sad'
+        $ bmood = 'sad'
         "The others look sad that I haven't gone to any of them for comfort... but I don't know them well enough. It would just feel weird."
         jump ch1_s5_6
 
@@ -705,6 +766,8 @@ label ch1_s5_6:
     z "A zombie."
     $ dmood = 'surprised'
     d "Oh my gods! Do you mean to say that thing wasn't alive... and yet it was walking?!"
+    $ zmood = 'neutral'
+    $ amood = 'neutral'
     z "That would be correct."
     d "Have you met things like that before?!"
     $ bmood = 'neutral'
